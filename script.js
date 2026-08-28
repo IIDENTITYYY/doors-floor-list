@@ -1,116 +1,99 @@
 const floorsData = [
     {
-        name: "Chaos Mode",
-        description: "COMPELTE RNG.",
-        rank: "#1",
-        borderColor: "#e6e6fa",
-        glowColor: "rgba(230, 230, 250)",
-        bgImage: "chaos.png",
-        ytLink: "https://www.youtube.com/watch?v=pIS9_ctaNvQ"
-    },
-    {
         name: "Super Hard Mode",
         description: "Honestly, this mode is pure pain and leaves everything else in the dust. If you somehow managed to grind out that badge back in 2023, you're an absolute legend.",
-        rank: "#2",
+        rank: "#1",
         borderColor: "#ff0000",
         glowColor: "rgba(255, 0, 0, 0.4)",
-        bgImage: "superhard.png",
-        ytLink: "https://www.youtube.com/watch?v=dNEUphwNRbo"
+        bgImage: "superhard.png"
     },
     {
         name: "Endless Mode",
-        description: "What do i even say? It's endless.",
-        rank: "#3",
+        description: "What is there even to say? It literally just goes on forever until you inevitably choke.",
+        rank: "#2",
         borderColor: "#9932cc",
         glowColor: "rgba(153, 50, 204, 0.4)",
-        bgImage: "endless.png",
-        ytLink: "https://www.youtube.com/watch?v=50DsmTqkPE4"
+        bgImage: "endless.png"
     },
     {
         name: "The Backdoor",
-        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
-        rank: "#4",
+        description: "Total RNG madness. Good luck trying to listen for Blitz cues while Haste is barreling toward you, all while dodging Lookman's staring contest.",
+        rank: "#3",
         borderColor: "#ffd700",
         glowColor: "rgba(255, 215, 0, 0.3)",
-        bgImage: "backdoor.png",
-        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
+        bgImage: "backdoor.png"
     },
     {
         name: "The Mines",
-        description: "Honestly carried by the Nest and the 1st Seek Chase, also like 190-199 too i guess.",
-        rank: "#5",
+        description: "Honestly carried entirely by the Nest and that insane 1st Seek Chase—plus those sweaty runs through doors 190 to 199.",
+        rank: "#4",
         borderColor: "#e0e4e8",
         glowColor: "rgba(224, 228, 232, 0.3)",
-        bgImage: "mines.png",
-        ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
+        bgImage: "mines.png"
     },
     {
         name: "The Outdoors",
-        description: "Carried by Eyestalk Chase, it's just confusing as hell.",
-        rank: "#6",
+        description: "Honestly just here because of the Eyestalk. That one single mechanic makes the whole zone a headache.",
+        rank: "#5",
         borderColor: "#ff69b4",
         glowColor: "rgba(255, 105, 180, 0.4)",
         bgImage: "outdoors.png",
-        isOutdoors: true,
-        ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
+        isOutdoors: true
     },
     {
         name: "The Hotel",
-        description: "it's pretty long and door 100 is a little difficult.",
-        rank: "#7",
+        description: "A solid, classic grind that actually tests your patience. Door 100 alone makes it way tougher than the outdoors.",
+        rank: "#6",
         borderColor: "#00bcd4",
         glowColor: "rgba(0, 188, 212, 0.3)",
-        bgImage: "hotel.png",
-        ytLink: "https://www.youtube.com/watch?v=k-o9vcNUXbo"
+        bgImage: "hotel.png"
     },
     {
         name: "Retro Mode",
-        description: "drakobloxxers would catch you quickly especially on that last door.",
-        rank: "#8",
+        description: "Looks all nostalgic and cute until those speedy drakobloxxers sprint out of nowhere and jump you right at the finish line.",
+        rank: "#7",
         borderColor: "#ff3300",
         glowColor: "rgba(255, 51, 0, 0.3)",
-        bgImage: "retro.png",
-        isRetro: true,
-        ytLink: "https://www.youtube.com/watch?v=3ogXXQttvRc"
+        bgImage: "retro.png"
     },
     {
         name: "Hotel -",
-        description: "Old hotel, Nothing much to say here.",
-        rank: "#9",
+        description: "Vintage hotel vibes. Nothing crazy going on here, pretty standard stuff.",
+        rank: "#8",
         borderColor: "#5c4033",
         glowColor: "rgba(92, 64, 51, 0.4)",
-        bgImage: "hotel_minus.png",
-        ytLink: "https://www.youtube.com/watch?v=P_W7o4KapZM"
+        bgImage: "hotel_minus.png"
     },
     {
         name: "Rush Mode",
-        description: "Exact opposite of Super Hard mode, No greenhouse and items are extremely common including Crucifixes.",
-        rank: "#10",
+        description: "Basically easy mode for the hotel. No greenhouse stress and you're practically drowning in items everywhere you look.",
+        rank: "#9",
         borderColor: "#1a1a1a",
         glowColor: "rgba(0, 0, 0, 0.6)",
-        bgImage: "rush_mode.png",
-        ytLink: "https://www.youtube.com/watch?v=H1ifZ3Arhf0"
+        bgImage: "rush_mode.png"
     },
     {
         name: "Cringle's Workshop",
-        description: "Chill and short.",
-        rank: "#11",
+        description: "Super chill, super short, and practically a free win.",
+        rank: "#10",
         borderColor: "#228b22",
         glowColor: "rgba(34, 139, 34, 0.4)",
-        bgImage: "workshop.png",
-        ytLink: "https://www.youtube.com/watch?v=sG6jMMObi-U"
+        bgImage: "workshop.png"
     },
     {
         name: "Archives",
-        description: "Archives, Where Forgotten Memories go. (STILL NOT RANKED BUT WILL BE RANKED EVENTUALLY)",
+        description: "Where all the lost concepts go to sleep. Not ranked yet, but it's definitely claiming a spot eventually.",
         rank: "N/A",
         borderColor: "#ffff00",
         glowColor: "rgba(255, 255, 0, 0.4)",
         bgImage: "archives.png",
-        isArchives: true,
-        ytLink: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE"
+        isArchives: true
     }
 ];
+
+function checkMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+}
 
 function showPage(pageId) {
     const homeView = document.getElementById('home-view');
@@ -130,24 +113,26 @@ function renderFloors() {
     const container = document.getElementById('floors-container');
     if (!container) return;
     
-    container.innerHTML = floorsData.map(floor => {
-        const tag = floor.ytLink && !floor.isArchives ? 'a' : 'div';
-        const linkAttrs = floor.ytLink && !floor.isArchives ? `href="${floor.ytLink}" target="_blank" rel="noopener noreferrer"` : '';
-        
-        return `
-            <${tag} ${linkAttrs} class="floor-card ${floor.isOutdoors ? 'outdoors-card' : ''} ${floor.isArchives ? 'archives-card' : ''} ${floor.isRetro ? 'retro-card' : ''}" style="border-color: ${floor.borderColor}; box-shadow: 0 0 25px ${floor.glowColor}, inset 0 0 20px rgba(0,0,0,0.5); background-image: url('${floor.bgImage}'); text-decoration: none;">
-                ${floor.isOutdoors ? `<img src="outdoors_frame.png" class="outdoors-vines-frame" alt="Vines Frame">` : ''}
-                ${floor.isRetro ? `<img src="drakoblox.png" class="awkward-drakoblox" alt="Drakoblox">` : ''}
-                <div class="floor-meta">
-                    <span class="rank" style="color: ${floor.borderColor}; text-shadow: 0 0 12px ${floor.glowColor};">${floor.rank}</span>
-                </div>
-                <div class="floor-info">
-                    <h2 style="text-decoration: none;">${floor.name}</h2>
-                    <p style="text-decoration: none;">${floor.description}</p>
-                </div>
-            </${tag}>
-        `;
-    }).join('');
+    const isMobile = checkMobileDevice();
+    if (isMobile) {
+        container.classList.add('mobile-layout');
+    } else {
+        container.classList.remove('mobile-layout');
+    }
+    
+    container.innerHTML = floorsData.map(floor => `
+        <div class="floor-card ${floor.isOutdoors ? 'outdoors-card' : ''} ${floor.isArchives ? 'archives-card' : ''} ${isMobile ? 'mobile-card' : ''}" style="border-color: ${floor.borderColor}; box-shadow: 0 0 25px ${floor.glowColor}, inset 0 0 20px rgba(0,0,0,0.5); background-image: url('${floor.bgImage}');">
+            ${floor.isOutdoors ? `<img src="outdoors_frame.png" class="outdoors-vines-frame" alt="Vines Frame">` : ''}
+            <div class="floor-meta">
+                <span class="rank" style="color: ${floor.borderColor}; text-shadow: 0 0 12px ${floor.glowColor};">${floor.rank}</span>
+            </div>
+            <div class="floor-info">
+                <h2>${floor.name}</h2>
+                <p>${floor.description}</p>
+            </div>
+        </div>
+    `).join('');
 }
 
+window.addEventListener('resize', renderFloors);
 document.addEventListener('DOMContentLoaded', renderFloors);
