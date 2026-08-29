@@ -1,6 +1,17 @@
+const Color = {
+    Red: "#ff0000",
+    DarkRed: "#8b0000",
+    Yellow: "#ffff00",
+    YellowishRed: "#ff4500",
+    Green: "#00ff00",
+    Blue: "#0000ff"
+};
+
 const floorsData = [
     {
         name: "Chaos Mode",
+        enjoyability: "Enjoyability: 3/10",
+        enjoyabilityColor: Color.Red,
         description: "COMPELTE RNG.",
         rank: "#1",
         borderColor: "#e6e6fa",
@@ -10,6 +21,8 @@ const floorsData = [
     },
     {
         name: "Super Hard Mode",
+        enjoyability: "Enjoyability: 2.5/10",
+        enjoyabilityColor: Color.Red,
         description: "Honestly, this mode is pure pain and leaves everything else in the dust. If you somehow managed to grind out that badge back in 2023, you're an absolute legend.",
         rank: "#2",
         borderColor: "#ff0000",
@@ -19,6 +32,8 @@ const floorsData = [
     },
     {
         name: "Endless Mode",
+        enjoyability: "Enjoyability: 3/10",
+        enjoyabilityColor: Color.Red,
         description: "What do i even say? It's endless.",
         rank: "#3",
         borderColor: "#9932cc",
@@ -27,25 +42,31 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=50DsmTqkPE4"
     },
     {
-        name: "The Backdoor",
-        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
-        rank: "#4",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.3)",
-        bgImage: "backdoor.png",
-        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
-    },
-    {
         name: "The Mines",
+        enjoyability: "Enjoyability: 9/10",
+        enjoyabilityColor: Color.Green,
         description: "Honestly carried by the Nest and the 1st Seek Chase, also like 190-199 too i guess.",
-        rank: "#5",
+        rank: "#4",
         borderColor: "#e0e4e8",
         glowColor: "rgba(224, 228, 232, 0.3)",
         bgImage: "mines.png",
         ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
     },
     {
+        name: "The Backdoor",
+        enjoyability: "Enjoyability: 4.5/10",
+        enjoyabilityColor: Color.Red,
+        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
+        rank: "#5",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.3)",
+        bgImage: "backdoor.png",
+        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
+    },
+    {
         name: "The Outdoors",
+        enjoyability: "Enjoyability: 9.5/10",
+        enjoyabilityColor: Color.Blue,
         description: "Carried by Eyestalk Chase, it's just confusing as hell.",
         rank: "#6",
         borderColor: "#ff69b4",
@@ -55,18 +76,45 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
     },
     {
-        name: "The Hotel",
-        description: "it's pretty long and door 100 is a little difficult.",
+        name: "Archives",
+        enjoyability: "Enjoyability: 9.5/10",
+        enjoyabilityColor: Color.Blue,
+        description: "Archives, Where Forgotten Memories go.",
         rank: "#7",
+        borderColor: "#ffff00",
+        glowColor: "rgba(255, 255, 0, 0.4)",
+        bgImage: "archives.png",
+        ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
+    },
+    {
+        name: "The Hotel",
+        enjoyability: "Enjoyability: 8.5/10",
+        enjoyabilityColor: Color.Green,
+        description: "it's pretty long and door 100 is a little difficult.",
+        rank: "#8",
         borderColor: "#00bcd4",
         glowColor: "rgba(0, 188, 212, 0.3)",
         bgImage: "hotel.png",
         ytLink: "https://www.youtube.com/watch?v=k-o9vcNUXbo"
     },
     {
+        name: "The Stairwell",
+        enjoyability: "Enjoyability: 1.5/10",
+        enjoyabilityColor: Color.DarkRed,
+        description: "Extremely Boring and repititive, There is barely any enjoyability you get from this other than playing it for the first time.",
+        rank: "#9",
+        borderColor: "#e0e0e0",
+        glowColor: "rgba(224, 224, 224, 0.5)",
+        bgImage: "stairwell.png",
+        isStairwell: true,
+        ytLink: "https://www.youtube.com/watch?v=WdBZh7U7EJY"
+    },
+    {
         name: "Retro Mode",
+        enjoyability: "Enjoyability: 8.7/10",
+        enjoyabilityColor: Color.Green,
         description: "drakobloxxers would catch you quickly especially on that last door.",
-        rank: "#8",
+        rank: "#10",
         borderColor: "#ff3300",
         glowColor: "rgba(255, 51, 0, 0.3)",
         bgImage: "retro.png",
@@ -75,8 +123,10 @@ const floorsData = [
     },
     {
         name: "Hotel -",
+        enjoyability: "Enjoyability: 7.5/10",
+        enjoyabilityColor: Color.Yellow,
         description: "Old hotel, Nothing much to say here.",
-        rank: "#9",
+        rank: "#11",
         borderColor: "#5c4033",
         glowColor: "rgba(92, 64, 51, 0.4)",
         bgImage: "hotel_minus.png",
@@ -84,8 +134,10 @@ const floorsData = [
     },
     {
         name: "Rush Mode",
+        enjoyability: "Enjoyability: 7/10",
+        enjoyabilityColor: Color.Yellow,
         description: "Exact opposite of Super Hard mode, No greenhouse and items are extremely common including Crucifixes.",
-        rank: "#10",
+        rank: "#12",
         borderColor: "#1a1a1a",
         glowColor: "rgba(0, 0, 0, 0.6)",
         bgImage: "rush_mode.png",
@@ -93,22 +145,14 @@ const floorsData = [
     },
     {
         name: "Cringle's Workshop",
+        enjoyability: "Enjoyability: 6.5/10",
+        enjoyabilityColor: Color.YellowishRed,
         description: "Chill and short.",
-        rank: "#11",
+        rank: "#13",
         borderColor: "#228b22",
         glowColor: "rgba(34, 139, 34, 0.4)",
         bgImage: "workshop.png",
         ytLink: "https://www.youtube.com/watch?v=sG6jMMObi-U"
-    },
-    {
-        name: "Archives",
-        description: "Archives, Where Forgotten Memories go. (STILL NOT RANKED BUT WILL BE RANKED EVENTUALLY)",
-        rank: "N/A",
-        borderColor: "#ffff00",
-        glowColor: "rgba(255, 255, 0, 0.4)",
-        bgImage: "archives.png",
-        isArchives: true,
-        ytLink: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE"
     }
 ];
 
@@ -128,13 +172,13 @@ function showPage(pageId) {
     const homeView = document.getElementById('home-view');
     const floorsView = document.getElementById('floors-view');
 
-    if (homeView) homeView.style.display = 'none';
-    if (floorsView) floorsView.style.display = 'none';
-
     if (pageId === 'home') {
         if (homeView) homeView.style.display = 'flex';
+        if (floorsView) floorsView.style.display = 'none';
     } else if (pageId === 'floors') {
+        if (homeView) homeView.style.display = 'none';
         if (floorsView) floorsView.style.display = 'block';
+        window.scrollTo(0, 0);
     }
 }
 
@@ -143,18 +187,19 @@ function renderFloors() {
     if (!container) return;
     
     container.innerHTML = floorsData.map(floor => {
-        const tag = floor.ytLink && !floor.isArchives ? 'a' : 'div';
-        const linkAttrs = floor.ytLink && !floor.isArchives ? `href="${floor.ytLink}" target="_blank" rel="noopener noreferrer"` : '';
+        const tag = floor.ytLink ? 'a' : 'div';
+        const linkAttrs = floor.ytLink ? `href="${floor.ytLink}" target="_blank" rel="noopener noreferrer"` : '';
         
         return `
-            <${tag} ${linkAttrs} class="floor-card ${floor.isOutdoors ? 'outdoors-card' : ''} ${floor.isArchives ? 'archives-card' : ''} ${floor.isRetro ? 'retro-card' : ''}" style="border-color: ${floor.borderColor}; box-shadow: 0 0 25px ${floor.glowColor}, inset 0 0 20px rgba(0,0,0,0.5); background-image: url('${floor.bgImage}'); text-decoration: none; position: relative; overflow: hidden;">
+            <${tag} ${linkAttrs} class="floor-card ${floor.isOutdoors ? 'outdoors-card' : ''} ${floor.isArchives ? 'archives-card' : ''} ${floor.isRetro ? 'retro-card' : ''} ${floor.isStairwell ? 'stairwell-card' : ''}" style="border-color: ${floor.borderColor}; box-shadow: 0 0 25px ${floor.glowColor}; background-image: url('${floor.bgImage}'); text-decoration: none; position: relative; overflow: hidden;">
                 ${floor.isOutdoors ? `<img src="outdoors_frame.png" class="outdoors-vines-frame" alt="Vines Frame">` : ''}
                 ${floor.isRetro ? `<img src="drakoblox.png" class="awkward-drakoblox" alt="Drakoblox" style="position: absolute; pointer-events: none; transform: translate(-50%, -50%); transition: transform 0.05s ease-out; display: none; width: 60px; height: 60px;">` : ''}
                 <div class="floor-meta">
                     <span class="rank" style="color: ${floor.borderColor}; text-shadow: 0 0 12px ${floor.glowColor};">${floor.rank}</span>
                 </div>
                 <div class="floor-info">
-                    <h2 style="text-decoration: none;">${floor.name}</h2>
+                    <h2 style="text-decoration: none; margin-bottom: 4px;">${floor.name}</h2>
+                    <p class="floor-enjoyability" style="color: ${floor.enjoyabilityColor}; font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; text-shadow: 0 0 8px rgba(0, 0, 0, 0.95);">${floor.enjoyability}</p>
                     <p style="text-decoration: none;">${floor.description}</p>
                 </div>
             </${tag}>
@@ -182,4 +227,4 @@ function renderFloors() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', renderFloors);
+renderFloors();
