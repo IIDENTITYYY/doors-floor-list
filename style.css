@@ -336,26 +336,9 @@ h1 {
     animation: bounceAround 8s infinite linear;
 }
 
-.archives-card {
-    cursor: default !important;
-    pointer-events: none !important;
-    transform: none !important;
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.1), inset 0 0 25px rgba(0, 0, 0, 0.9) !important;
-    opacity: 0.55;
-}
-
-.archives-card::before {
-    background: linear-gradient(to top, rgba(5, 5, 7, 0.98) 40%, rgba(5, 5, 7, 0.7) 100%) !important;
-}
-
-.archives-card::after {
-    display: none !important;
-}
-
-.archives-card:hover {
-    transform: none !important;
-    border-color: #ffff00 !important;
-    box-shadow: 0 0 15px rgba(255, 255, 0, 0.1), inset 0 0 25px rgba(0, 0, 0, 0.9) !important;
+.stairwell-card {
+    position: relative;
+    overflow: hidden !important;
 }
 
 body.mobile-device .update-log {
