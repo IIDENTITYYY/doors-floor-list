@@ -437,3 +437,11 @@ function renderAll() {
 }
 
 renderAll();
+
+document.addEventListener("DOMContentLoaded", () => {
+    const updateLog = document.querySelector(".update-log-container");
+    if (updateLog) {
+        updateLog.style.position = "relative";
+        updateLog.style.marginTop = "30px";
+    }
+});
