@@ -88,11 +88,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-    position: relative;
-    box-sizing: border-box;
-    padding: 40px 20px;
 }
 
 .fade-out-up {
@@ -387,25 +384,22 @@ h1 {
     overflow: hidden !important;
 }
 
-/* Mobile adjustments */
+body.mobile-device .outdoors-vines-frame {
+    width: 140px;
+    height: 140px;
+}
+
 body.mobile-device .update-log {
     position: relative;
     left: auto;
     top: auto;
     transform: none;
     width: 85%;
-    margin: 40px auto 0 auto;
-    animation: none;
-}
-
-body.mobile-device .update-log:hover {
-    transform: none;
+    margin: 40px auto 20px auto;
 }
 
 body.mobile-device .container {
     height: auto;
-    min-height: 100vh;
-    justify-content: flex-start;
     padding: 40px 0;
 }
 
