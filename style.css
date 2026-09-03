@@ -8,12 +8,13 @@ body {
     background-color: #05050a;
     color: #ffffff;
     font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     overflow-x: hidden;
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px 10px;
 }
 
 .home-container {
@@ -21,15 +22,16 @@ body {
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px;
-    padding: 20px;
+    max-width: 500px;
+    padding: 10px;
     gap: 20px;
 }
 
 h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     text-align: center;
     letter-spacing: 2px;
+    width: 100%;
 }
 
 .button-group {
@@ -45,25 +47,25 @@ h1 {
     background: transparent;
     color: #ffffff;
     border: 2px solid #00d2ff;
-    padding: 14px 32px;
+    padding: 14px 20px;
     border-radius: 12px;
     text-decoration: none;
     font-weight: bold;
     text-align: center;
     cursor: pointer;
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
-    width: 80%;
-    max-width: 300px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 320px;
 }
 
 .update-log-container {
     background: #0b0b14;
     border: 2px solid #00d2ff;
     border-radius: 16px;
-    padding: 24px;
+    padding: 20px;
     width: 100%;
-    margin-top: 20px;
+    max-width: 380px;
+    margin-top: 10px;
     box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
     display: flex;
     flex-direction: column;
@@ -72,8 +74,8 @@ h1 {
 
 .update-log-container h2 {
     color: #00d2ff;
-    font-size: 1.3rem;
-    margin-bottom: 16px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
     letter-spacing: 1px;
 }
 
@@ -82,19 +84,19 @@ h1 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
     width: 100%;
 }
 
 .update-log-container li {
     color: #a0a0c0;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
 }
 
 .view-container {
     width: 100%;
-    max-width: 800px;
-    padding: 20px;
+    max-width: 600px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -171,115 +173,4 @@ h1 {
 @keyframes slideUpOut {
     from { opacity: 1; transform: translateY(0); }
     to { opacity: 0; transform: translateY(20px); }
-}
-
-@media screen and (max-width: 480px) {
-    .home-container, .view-container {
-        padding: 10px;
-        gap: 16px;
-    }
-    
-    h1 {
-        font-size: 1.4rem;
-    }
-
-    .main-btn, .back-btn {
-        padding: 12px 24px;
-        width: 100%;
-    }
-
-    .update-log-container {
-        padding: 18px;
-        margin-top: 15px;
-    }
-}
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-.floor-card {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 16px;
-    border: 2px solid;
-    background-size: cover;
-    background-position: center;
-    color: #ffffff;
-    min-height: 180px;
-    justify-content: space-between;
-}
-
-.floor-meta {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.rank {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.floor-info {
-    background: rgba(5, 5, 10, 0.85);
-    padding: 14px;
-    border-radius: 10px;
-}
-
-.fade-in-down {
-    animation: fadeInDown 0.4s ease forwards;
-}
-
-.fade-out-up {
-    animation: fadeOutUp 0.4s ease forwards;
-}
-
-.slide-down-in {
-    animation: slideDownIn 0.4s ease forwards;
-}
-
-.slide-up-out {
-    animation: slideUpOut 0.4s ease forwards;
-}
-
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes fadeOutUp {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(-20px); }
-}
-
-@keyframes slideDownIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUpOut {
-    from { opacity: 1; transform: translateY(0); }
-    to { opacity: 0; transform: translateY(20px); }
-}
-
-@media screen and (max-width: 480px) {
-    .home-container, .view-container {
-        padding: 10px;
-        gap: 16px;
-    }
-    
-    h1 {
-        font-size: 1.4rem;
-    }
-
-    .main-btn, .back-btn {
-        padding: 12px 24px;
-        width: 100%;
-    }
-
-    .update-log-container {
-        padding: 18px;
-        margin-top: 15px;
-    }
 }
