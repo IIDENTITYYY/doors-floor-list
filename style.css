@@ -41,7 +41,7 @@ h1 {
 }
 
 .main-btn, .back-btn {
-    display: inline-block;
+    display: block;
     background: transparent;
     color: #ffffff;
     border: 2px solid #00d2ff;
@@ -54,6 +54,7 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
     width: 80%;
     max-width: 300px;
+    margin: 0 auto;
 }
 
 .update-log-container {
@@ -102,6 +103,96 @@ h1 {
 
 .grid-container {
     display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.floor-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+    border: 2px solid;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 180px;
+    justify-content: space-between;
+}
+
+.floor-meta {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.floor-info {
+    background: rgba(5, 5, 10, 0.85);
+    padding: 14px;
+    border-radius: 10px;
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.4s ease forwards;
+}
+
+.fade-out-up {
+    animation: fadeOutUp 0.4s ease forwards;
+}
+
+.slide-down-in {
+    animation: slideDownIn 0.4s ease forwards;
+}
+
+.slide-up-out {
+    animation: slideUpOut 0.4s ease forwards;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutUp {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes slideDownIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+@media screen and (max-width: 480px) {
+    .home-container, .view-container {
+        padding: 10px;
+        gap: 16px;
+    }
+    
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    .main-btn, .back-btn {
+        padding: 12px 24px;
+        width: 100%;
+    }
+
+    .update-log-container {
+        padding: 18px;
+        margin-top: 15px;
+    }
+}
     flex-direction: column;
     gap: 20px;
     width: 100%;
