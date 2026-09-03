@@ -123,6 +123,93 @@ h1 {
     justify-content: space-between;
 }
 
+.floor-card[data-id="outdoors"] .floor-meta {
+    animation: spinInPlace 10s linear infinite;
+    transform-origin: center center;
+    display: inline-block;
+}
+
+.floor-meta {
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(5, 5, 10, 0.75);
+    padding: 6px 12px;
+    border-radius: 8px;
+    align-self: flex-end;
+}
+
+.rank {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.floor-info {
+    background: rgba(5, 5, 10, 0.9);
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.fade-in-down {
+    animation: fadeInDown 0.4s ease forwards;
+}
+
+.fade-out-up {
+    animation: fadeOutUp 0.4s ease forwards;
+}
+
+.slide-down-in {
+    animation: slideDownIn 0.4s ease forwards;
+}
+
+.slide-up-out {
+    animation: slideUpOut 0.4s ease forwards;
+}
+
+@keyframes spinInPlace {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOutUp {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-20px); }
+}
+
+@keyframes slideDownIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUpOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(20px); }
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.floor-card {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 16px;
+    border: 4px solid;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    min-height: 420px;
+    justify-content: space-between;
+}
+
 .floor-card:nth-child(5) .floor-meta {
     animation: spinInPlace 10s linear infinite;
     transform-origin: center center;
