@@ -3,28 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DOORS Tier List</title>
-    <link rel="stylesheet" href="style.css">
+    <title>DOORS Floor Tier List</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #05050a;
+            color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            text-align: center;
+            letter-spacing: 2px;
+        }
+
+        .btn-container {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+            align-items: center;
+        }
+
+        .main-btn {
+            display: inline-block;
+            background: transparent;
+            color: #ffffff;
+            border: 2px solid #00d2ff;
+            padding: 14px 32px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            width: 80%;
+            max-width: 300px;
+            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
+        }
+
+        .update-log-container {
+            background: #0b0b14;
+            border: 2px solid #00d2ff;
+            border-radius: 16px;
+            padding: 24px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .update-log-container h2 {
+            color: #00d2ff;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        .update-log-container ul {
+            list-style: none;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .update-log-container li {
+            color: #a0a0c0;
+            font-size: 0.95rem;
+        }
+
+        @media screen and (max-width: 480px) {
+            .main-wrapper {
+                padding: 10px;
+                gap: 16px;
+            }
+            
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            .main-btn {
+                padding: 12px 24px;
+                width: 100%;
+            }
+
+            .update-log-container {
+                padding: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
-
-    <div class="bg-glow"></div>
-
-    <div id="home-view" class="container">
-        <h1>DOORS Floor Tier List</h1>
-        
-        <div class="button-wrapper">
-            <div class="button-container">
-                <button class="nav-button btn-floors" onclick="showPage('floors')">Go to Main List</button>
-            </div>
-            <div class="sub-buttons-container">
-                <button class="nav-button btn-side" onclick="showPage('chases')">Chases</button>
-                <button class="nav-button btn-side" onclick="showPage('bossfights')">Bossfights</button>
-            </div>
+    <div class="main-wrapper">
+        <h1>DOORS FLOOR TIER LIST</h1>
+        <div class="btn-container">
+            <a href="main.html" class="main-btn">Go to Main List</a>
+            <a href="chases.html" class="main-btn">Chases List</a>
+            <a href="bossfights.html" class="main-btn">Bossfights List</a>
         </div>
-
-        <div class="update-log">
-            <div class="clipboard-top"></div>
+        <div class="update-log-container">
             <h2>UPDATE LOG</h2>
             <ul>
                 <li>Reworked The Entire Site</li>
@@ -36,37 +135,20 @@
             </ul>
         </div>
     </div>
-
-    <div id="floors-view" class="sub-page" style="display: none;">
-        <header class="page-header">
-            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
-            <h1>Floor Rankings</h1>
-            <div class="header-spacer"></div>
-        </header>
-
-        <div class="list-container" id="floors-container"></div>
-    </div>
-
-    <div id="chases-view" class="sub-page" style="display: none;">
-        <header class="page-header">
-            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
-            <h1>Chases List</h1>
-            <div class="header-spacer"></div>
-        </header>
-
-        <div class="list-container" id="chases-container"></div>
-    </div>
-
-    <div id="bossfights-view" class="sub-page" style="display: none;">
-        <header class="page-header">
-            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
-            <h1>Boss Fights</h1>
-            <div class="header-spacer"></div>
-        </header>
-
-        <div class="list-container" id="bossfights-container"></div>
-    </div>
-
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.querySelector(".update-log-container");
+            if (container) {
+                container.style.opacity = "0";
+                container.style.transform = "translateY(20px)";
+                container.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+                
+                requestAnimationFrame(() => {
+                    container.style.opacity = "1";
+                    container.style.transform = "translateY(0)";
+                });
+            }
+        });
+    </script>
 </body>
 </html>
