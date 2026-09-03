@@ -4,104 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DOORS Floor Tier List</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="home-view" class="home-container">
+        <h1>DOORS FLOOR TIER LIST</h1>
+        <div class="button-group">
+            <button class="main-btn" onclick="showPage('floors')">Go to Main List</button>
+            <button class="main-btn" onclick="showPage('chases')">Chases List</button>
+            <button class="main-btn" onclick="showPage('bossfights')">Bossfights List</button>
+        </div>
+        <div class="update-log-container">
+            <h2>UPDATE LOG</h2>
+            <ul>
+                <li>Reworked The Entire Site</li>
+                <li>2 New Lists : Chases and Bossfights</li>
+                <li>Added Animations (kind of..?)</li>
+                <li>Made it smoother</li>
+                <li>Optimized lol</li>
+                <li>And More..!</li>
+            </ul>
+        </div>
+    </div>
 
-        body {
-            background-color: #05050a;
-            color: #ffffff;
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
+    <div id="floors-view" class="view-container" style="display: none;">
+        <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+        <div class="list-header"><h1>Floors Tier List</h1></div>
+        <div class="grid-container" id="floors-container"></div>
+    </div>
 
-        .main-wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            gap: 20px;
-        }
+    <div id="chases-view" class="view-container" style="display: none;">
+        <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+        <div class="list-header"><h1>Chases Tier List</h1></div>
+        <div class="grid-container" id="chases-container"></div>
+    </div>
 
-        h1 {
-            font-size: 1.8rem;
-            text-align: center;
-            letter-spacing: 2px;
-        }
+    <div id="bossfights-view" class="view-container" style="display: none;">
+        <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+        <div class="list-header"><h1>Bossfights Tier List</h1></div>
+        <div class="grid-container" id="bossfights-container"></div>
+    </div>
 
-        .btn-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            width: 100%;
-            align-items: center;
-        }
-
-        .main-btn {
-            display: inline-block;
-            background: transparent;
-            color: #ffffff;
-            border: 2px solid #00d2ff;
-            padding: 14px 32px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            width: 80%;
-            max-width: 300px;
-            box-shadow: 0 0 15px rgba(0, 210, 255, 0.3);
-        }
-
-        .update-log-container {
-            background: #0b0b14;
-            border: 2px solid #00d2ff;
-            border-radius: 16px;
-            padding: 24px;
-            width: 100%;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.2);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .update-log-container h2 {
-            color: #00d2ff;
-            font-size: 1.3rem;
-            margin-bottom: 16px;
-            letter-spacing: 1px;
-        }
-
-        .update-log-container ul {
-            list-style: none;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            width: 100%;
-        }
-
-        .update-log-container li {
-            color: #a0a0c0;
-            font-size: 0.95rem;
-        }
-
-        @media screen and (max-width: 480px) {
-            .main-wrapper {
-                padding: 10px;
-                gap: 16px;
-            }
-            
-            h1 {
-                font-size: 1.4rem;
+    <script src="script.js"></script>
+</body>
+</html>
             }
 
             .main-btn {
