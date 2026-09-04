@@ -3,32 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Maintenance</title>
-    <style>
-        body {
-            background-color: #07070a;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        h1 {
-            font-size: 3rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: #00d2ff;
-            text-shadow: 0 0 20px rgba(0, 210, 255, 0.6);
-            padding: 0 20px;
-            margin: 0;
-        }
-    </style>
+    <title>DOORS Tier List</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>WEBSITE IS ON MAINTENANCE UNTIL SEPTEMBER 4TH 2026</h1>
+
+    <div class="bg-glow"></div>
+
+    <div id="home-view" class="container">
+        <div class="update-log">
+            <div class="clipboard-top"></div>
+            <h2>UPDATE LOG</h2>
+            <ul>
+                <li>Reworked The Entire Site</li>
+                <li>2 New Lists : Chases and Bossfights</li>
+                <li>Added Animations (kind of..?)</li>
+                <li>Made it smoother</li>
+                <li>Optimized lol</li>
+                <li>And More..!</li>
+            </ul>
+        </div>
+
+        <h1>DOORS Floor Tier List</h1>
+        
+        <div class="button-wrapper">
+            <div class="button-container">
+                <button class="nav-button btn-floors" onclick="showPage('floors')">Go to Main List</button>
+            </div>
+            <div class="sub-buttons-container">
+                <button class="nav-button btn-side" onclick="showPage('chases')">Chases</button>
+                <button class="nav-button btn-side" onclick="showPage('bossfights')">Bossfights</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="floors-view" class="sub-page" style="display: none;">
+        <header class="page-header">
+            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
+            <h1>Floor Rankings</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="list-container" id="floors-container"></div>
+    </div>
+
+    <div id="chases-view" class="sub-page" style="display: none;">
+        <header class="page-header">
+            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
+            <h1>Chases List</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="list-container" id="chases-container"></div>
+    </div>
+
+    <div id="bossfights-view" class="sub-page" style="display: none;">
+        <header class="page-header">
+            <button class="back-button" onclick="showPage('home')">&larr; Back</button>
+            <h1>Boss Fights</h1>
+            <div class="header-spacer"></div>
+        </header>
+
+        <div class="list-container" id="bossfights-container"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
