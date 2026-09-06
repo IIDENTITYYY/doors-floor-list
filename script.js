@@ -44,22 +44,11 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
     },
     {
-        name: "The Backdoor",
-        enjoyability: "Enjoyability: 4.5/10",
-        enjoyabilityColor: Color.Red,
-        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
-        rank: "#4",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
-        bgImage: "backdoor.png",
-        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
-    },
-    {
         name: "The Outdoors",
         enjoyability: "Enjoyability: 9.5/10",
         enjoyabilityColor: Color.Blue,
         description: "Carried by Eyestalk Chase, it's just confusing as hell.",
-        rank: "#5",
+        rank: "#4",
         borderColor: "#ff69b4",
         glowColor: "rgba(255, 105, 180, 0.5)",
         bgImage: "outdoors.png",
@@ -71,11 +60,23 @@ const floorsData = [
         enjoyability: "Enjoyability: 9.5/10",
         enjoyabilityColor: Color.Blue,
         description: "Archives, Where Forgotten Memories go.",
-        rank: "#6",
+        rank: "#5",
         borderColor: "#ffff00",
         glowColor: "rgba(255, 255, 0, 0.5)",
         bgImage: "archives.png",
+        isArchives: true,
         ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
+    },
+    {
+        name: "The Backdoor",
+        enjoyability: "Enjoyability: 4.5/10",
+        enjoyabilityColor: Color.Red,
+        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
+        rank: "#6",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.4)",
+        bgImage: "backdoor.png",
+        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
     },
     {
         name: "The Hotel",
@@ -364,6 +365,7 @@ function showPage(pageId) {
             homeView.style.display = 'flex';
             homeView.classList.remove('fade-out-up');
             homeView.classList.add('fade-in-down');
+            void homeView.offsetWidth;
         }
     } else {
         if (homeView) {
@@ -389,6 +391,7 @@ function showPage(pageId) {
 
         if (targetView) {
             targetView.style.display = 'block';
+            void targetView.offsetWidth;
             targetView.classList.add('slide-down-in');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
