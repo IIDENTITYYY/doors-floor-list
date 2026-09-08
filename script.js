@@ -11,149 +11,149 @@ const Color = {
 
 const floorsData = [
     {
-        name: "Chaos Mode",
-        enjoyability: "Enjoyability: 3/10",
-        enjoyabilityColor: Color.Red,
-        description: "COMPLETE RNG.",
-        rank: "#1",
-        borderColor: "#e6e6fa",
-        glowColor: "rgba(230, 230, 250, 0.4)",
-        bgImage: "chaos.png",
-        ytLink: "https://www.youtube.com/watch?v=pIS9_ctaNvQ"
-    },
-    {
         name: "Super Hard Mode",
-        enjoyability: "Enjoyability: 2.5/10",
-        enjoyabilityColor: Color.Red,
-        description: "Honestly, this mode is pure pain and leaves everything else in the dust. If you somehow managed to grind out that badge back in 2023, you're an absolute legend.",
-        rank: "#2",
-        borderColor: "#ff3333",
-        glowColor: "rgba(255, 51, 51, 0.5)",
+        enjoyability: "Enjoyability: 2.25/10",
+        enjoyabilityColor: Color.DarkRed,
+        description: "An insanely buffed version of the hotel+ update, This mode is truly on a different level of difficulty.",
+        rank: "#1",
+        borderColor: "#8b0000",
+        glowColor: "rgba(139, 0, 0, 0.5)",
         bgImage: "superhard.png",
         ytLink: "https://www.youtube.com/watch?v=dNEUphwNRbo"
     },
     {
+        name: "Chaos Mode",
+        enjoyability: "Enjoyability: 2.8/10",
+        enjoyabilityColor: Color.Red,
+        description: "Completely Relies on RNG. In some scenarios a specific mod can just immediately end your run, Such as Seek Chase + Jail.",
+        rank: "#2",
+        borderColor: "#ff3333",
+        glowColor: "rgba(255, 51, 51, 0.5)",
+        bgImage: "chaos.png",
+        ytLink: "https://www.youtube.com/watch?v=pIS9_ctaNvQ"
+    },
+    {
         name: "The Mines",
-        enjoyability: "Enjoyability: 9/10",
+        enjoyability: "Enjoyability: 9.2/10",
         enjoyabilityColor: Color.Green,
-        description: "Honestly carried by the Nest and the 1st Seek Chase, also like 190-199 too i guess.",
+        description: "Places here because of the Doors 190-199, they are just hell, Also the 1st Seek Chase can be confusing sometimes, Truly an Amazing Floor.",
         rank: "#3",
-        borderColor: "#e0e4e8",
-        glowColor: "rgba(224, 228, 232, 0.4)",
+        borderColor: "#00ff66",
+        glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "mines.png",
         ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
     },
     {
-        name: "The Outdoors",
-        enjoyability: "Enjoyability: 9.5/10",
-        enjoyabilityColor: Color.Blue,
-        description: "Carried by Eyestalk Chase, it's just confusing as hell.",
-        rank: "#4",
-        borderColor: "#ff69b4",
-        glowColor: "rgba(255, 105, 180, 0.5)",
-        bgImage: "outdoors.png",
-        isOutdoors: true,
-        ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
-    },
-    {
-        name: "Archives",
-        enjoyability: "Enjoyability: 9.5/10",
-        enjoyabilityColor: Color.Blue,
-        description: "Archives, Where Forgotten Memories go.",
-        rank: "#5",
-        borderColor: "#ffff00",
-        glowColor: "rgba(255, 255, 0, 0.5)",
-        bgImage: "archives.png",
-        isArchives: true,
-        ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
-    },
-    {
         name: "The Backdoor",
-        enjoyability: "Enjoyability: 4.5/10",
-        enjoyabilityColor: Color.Red,
-        description: "Fully RNG. You can't even hear Blitz when Haste spawns, Also lookman exists.",
-        rank: "#6",
+        enjoyability: "Enjoyability: 5/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "Also Depends a ton on RNG and is pretty difficult, Timers can be in sub-rooms and you cannot hear Blitz when haste is approaching.",
+        rank: "#4",
         borderColor: "#ffd700",
         glowColor: "rgba(255, 215, 0, 0.4)",
         bgImage: "backdoor.png",
         ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
     },
     {
+        name: "The Outdoors",
+        enjoyability: "Enjoyability: 9.45/10",
+        enjoyabilityColor: Color.Blue,
+        description: "The eyestalk chase is a little confusing and you can get awful combos such as Groundskeeper alongside Mandrake and Maybe Monument.",
+        rank: "#5",
+        borderColor: "#00d2ff",
+        glowColor: "rgba(0, 210, 255, 0.5)",
+        bgImage: "outdoors.png",
+        isOutdoors: true,
+        ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
+    },
+    {
         name: "The Hotel",
-        enjoyability: "Enjoyability: 8.5/10",
+        enjoyability: "Enjoyability: 8.3/10",
         enjoyabilityColor: Color.Green,
-        description: "it's pretty long and door 100 is a little difficult.",
-        rank: "#7",
-        borderColor: "#00bcd4",
-        glowColor: "rgba(0, 188, 212, 0.4)",
+        description: "A Classic, Carried mostly by the Greenhouse, Library and The Electrical Room, Nothing much to say.",
+        rank: "#6",
+        borderColor: "#00ff66",
+        glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "hotel.png",
         ytLink: "https://www.youtube.com/watch?v=k-o9vcNUXbo"
     },
     {
-        name: "The Stairwell",
-        enjoyability: "Enjoyability: 1.5/10",
-        enjoyabilityColor: Color.DarkRed,
-        description: "Extremely Boring and repetitive, There is barely any enjoyability you get from this other than playing it for the first time.",
+        name: "Hotel -",
+        enjoyability: "Enjoyability: 7.8/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "Straight nostalgia, Only here cuz of old ambush and Jack being pretty common.",
+        rank: "#7",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.4)",
+        bgImage: "hotel_minus.png",
+        ytLink: "https://www.youtube.com/watch?v=P_W7o4KapZM"
+    },
+    {
+        name: "Archives",
+        enjoyability: "Enjoyability: 9.6/10",
+        enjoyabilityColor: Color.Blue,
+        description: "Extremely fun and fairly easy to learn, Very beginner friendly and enjoyable.",
         rank: "#8",
-        borderColor: "#e0e0e0",
-        glowColor: "rgba(224, 224, 224, 0.5)",
+        borderColor: "#00d2ff",
+        glowColor: "rgba(0, 210, 255, 0.6)",
+        bgImage: "archives.png",
+        isArchives: true,
+        ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
+    },
+    {
+        name: "Trick Or Treat",
+        enjoyability: "Enjoyability: 7.7/10",
+        enjoyabilityColor: Color.YellowishGreen,
+        description: "Extremely long and a ton of the entities still exist such as rush, Trick or treating IS optional but still.",
+        rank: "#9",
+        borderColor: "#adff2f",
+        glowColor: "rgba(173, 255, 47, 0.4)",
+        bgImage: "tot.png",
+        ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
+    },
+    {
+        name: "The Stairwell",
+        enjoyability: "Enjoyability: 1.45/10",
+        enjoyabilityColor: Color.DarkRed,
+        description: "Not Difficult.",
+        rank: "#10",
+        borderColor: "#8b0000",
+        glowColor: "rgba(139, 0, 0, 0.7)",
         bgImage: "stairwell.png",
         isStairwell: true,
         ytLink: "https://www.youtube.com/watch?v=WdBZh7U7EJY"
     },
     {
         name: "Retro Mode",
-        enjoyability: "Enjoyability: 8.7/10",
+        enjoyability: "Enjoyability: 8.5/10",
         enjoyabilityColor: Color.Green,
-        description: "drakobloxxers would catch you quickly especially on that last door.",
-        rank: "#9",
-        borderColor: "#ff3300",
-        glowColor: "rgba(255, 51, 0, 0.4)",
+        description: "You have 600 seconds to finish it and the drakobloxxers are nearly impossible to dodge, Also the Library can be quite time consuming.",
+        rank: "#11",
+        borderColor: "#00ff66",
+        glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "retro.png",
         isRetro: true,
         ytLink: "https://www.youtube.com/watch?v=3ogXXQttvRc"
     },
     {
-        name: "Hotel -",
-        enjoyability: "Enjoyability: 7.5/10",
-        enjoyabilityColor: Color.Yellow,
-        description: "Old hotel, Nothing much to say here.",
-        rank: "#10",
-        borderColor: "#5c4033",
-        glowColor: "rgba(92, 64, 51, 0.5)",
-        bgImage: "hotel_minus.png",
-        ytLink: "https://www.youtube.com/watch?v=P_W7o4KapZM"
-    },
-    {
-        name: "Endless Mode",
-        enjoyability: "Enjoyability: 3/10",
-        enjoyabilityColor: Color.Red,
-        description: "What do i even say? It's endless.",
-        rank: "#11",
-        borderColor: "#9932cc",
-        glowColor: "rgba(153, 50, 204, 0.5)",
-        bgImage: "endless.png",
-        ytLink: "https://www.youtube.com/watch?v=50DsmTqkPE4"
-    },
-    {
         name: "Rush Mode",
-        enjoyability: "Enjoyability: 7/10",
-        enjoyabilityColor: Color.Yellow,
-        description: "Exact opposite of Super Hard mode, No greenhouse and items are extremely common including Crucifixes.",
+        enjoyability: "Enjoyability: 8.8/10",
+        enjoyabilityColor: Color.Green,
+        description: "More common items, No greenhouse, Overall an easier version of the Hotel.",
         rank: "#12",
-        borderColor: "#1a1a1a",
-        glowColor: "rgba(0, 0, 0, 0.7)",
+        borderColor: "#00ff66",
+        glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "rush_mode.png",
         ytLink: "https://www.youtube.com/watch?v=H1ifZ3Arhf0"
     },
     {
         name: "Cringle's Workshop",
-        enjoyability: "Enjoyability: 6.5/10",
-        enjoyabilityColor: Color.YellowishRed,
-        description: "Chill and short.",
+        enjoyability: "Enjoyability: 7/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "It's just 1 room.",
         rank: "#13",
-        borderColor: "#228b22",
-        glowColor: "rgba(34, 139, 34, 0.5)",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.4)",
         bgImage: "workshop.png",
         ytLink: "https://www.youtube.com/watch?v=sG6jMMObi-U"
     }
@@ -164,7 +164,7 @@ const chasesData = [
         name: "Mines 1st Seek Chase",
         enjoyability: "Enjoyability: 10/10",
         enjoyabilityColor: Color.Blue,
-        description: "The minecart part is still pretty difficult",
+        description: "The minecart part is a little confusing and a little difficult, Moonlight may be a little hard to see sometimes.",
         rank: "#1",
         borderColor: "#0000ff",
         glowColor: "rgba(0, 0, 255, 0.5)",
@@ -175,7 +175,7 @@ const chasesData = [
         name: "Eyestalk Chase",
         enjoyability: "Enjoyability: 10/10",
         enjoyabilityColor: Color.Blue,
-        description: "You have to be quick to see where you are going",
+        description: "You have to be very quick to see where you are going to make sure you don't go the wrong direction and also not step on a Snare.",
         rank: "#2",
         borderColor: "#0000ff",
         glowColor: "rgba(0, 0, 255, 0.5)",
@@ -186,7 +186,7 @@ const chasesData = [
         name: "Super Hard Mode Seek",
         enjoyability: "Enjoyability: 8.3/10",
         enjoyabilityColor: Color.Green,
-        description: "Pretty much just seek with a big Speed Boost",
+        description: "Pretty much just seek with an insanely massive Speed Boost applied.",
         rank: "#3",
         borderColor: "#00ff00",
         glowColor: "rgba(0, 255, 0, 0.5)",
@@ -197,7 +197,7 @@ const chasesData = [
         name: "Rush Seek",
         enjoyability: "Enjoyability: 7.5/10",
         enjoyabilityColor: Color.YellowishGreen,
-        description: "Normal seek with a speed boost",
+        description: "Pretty much just seek with a very small Speed Boost Applied",
         rank: "#4",
         borderColor: "#9acd32",
         glowColor: "rgba(154, 205, 50, 0.5)",
@@ -208,7 +208,7 @@ const chasesData = [
         name: "Mines 2nd Seek Chase",
         enjoyability: "Enjoyability: 9.8/10",
         enjoyabilityColor: Color.Blue,
-        description: "Very fun and pretty simple, Just follow Moonlight",
+        description: "Fun and also very simple, Make sure to follow moonlight and even if you go the wrong direction you have a lot of time to change directions before Seek catches up to you.",
         rank: "#5",
         borderColor: "#0000ff",
         glowColor: "rgba(0, 0, 255, 0.5)",
@@ -219,7 +219,7 @@ const chasesData = [
         name: "Hotel 2nd Seek Chase",
         enjoyability: "Enjoyability: 7.5/10",
         enjoyabilityColor: Color.YellowishGreen,
-        description: "Just Longer than 1st Hotel Seek Chase",
+        description: "In short it is just a longer version of the 1st Hotel Seek Chase.",
         rank: "#6",
         borderColor: "#9acd32",
         glowColor: "rgba(154, 205, 50, 0.5)",
@@ -230,7 +230,7 @@ const chasesData = [
         name: "Hotel 1st Seek Chase",
         enjoyability: "Enjoyability: 7/10",
         enjoyabilityColor: Color.Yellow,
-        description: "i am NOT explaining this,",
+        description: "Extremely Easy and Simple and Beginner friendly.",
         rank: "#7",
         borderColor: "#ffff00",
         glowColor: "rgba(255, 255, 0, 0.5)",
@@ -244,7 +244,7 @@ const bossFightsData = [
         name: "Super Hard Mode Library",
         enjoyability: "Enjoyability: 4/10",
         enjoyabilityColor: Color.YellowishRed,
-        description: "Just Look at the image...",
+        description: "11 Symbols for the code, No need to explain.",
         rank: "#1",
         borderColor: "#ff4500",
         glowColor: "rgba(255, 69, 0, 0.5)",
@@ -255,7 +255,7 @@ const bossFightsData = [
         name: "Honcho Sequence",
         enjoyability: "Enjoyability: 8.9/10",
         enjoyabilityColor: Color.Green,
-        description: "It's pretty difficult but also very fun",
+        description: "Fun and pretty easy, but harder than the others on this list.",
         rank: "#2",
         borderColor: "#00ff00",
         glowColor: "rgba(0, 255, 0, 0.5)",
@@ -266,7 +266,7 @@ const bossFightsData = [
         name: "The Nest",
         enjoyability: "Enjoyability: 8.4/10",
         enjoyabilityColor: Color.Green,
-        description: "Not hard just harder than the other stuff on the list, Even after the nerfs.",
+        description: "Not hard, But can take up to ~20 minutes if you're slow and if you're a new player then it will be pretty difficult for you.",
         rank: "#3",
         borderColor: "#00ff00",
         glowColor: "rgba(0, 255, 0, 0.5)",
@@ -277,7 +277,7 @@ const bossFightsData = [
         name: "Super Hard Mode Electrical Room",
         enjoyability: "Enjoyability: 6/10",
         enjoyabilityColor: Color.Yellow,
-        description: "Just normal electrical room except figure has a speed boost",
+        description: "Just normal electrical room except figure has a small speed boost that may give him an advantage.",
         rank: "#4",
         borderColor: "#ffff00",
         glowColor: "rgba(255, 255, 0, 0.5)",
@@ -285,11 +285,22 @@ const bossFightsData = [
         ytLink: "https://www.youtube.com/watch?v=_FhOxC6iN4k"
     },
     {
+        name: "Krampus Bossfight",
+        enjoyability: "Enjoyability: 7/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "Its just 1 room.",
+        rank: "#5",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.5)",
+        bgImage: "cringleboss.png",
+        ytLink: "https://www.youtube.com/watch?v=sG6jMMObi-U"
+    },
+    {
         name: "Electrical Room",
         enjoyability: "Enjoyability: 8/10",
         enjoyabilityColor: Color.Green,
-        description: "It is NOT hard at all",
-        rank: "#5",
+        description: "may take a while and sometimes figure can just stop being blind fr.",
+        rank: "#6",
         borderColor: "#00ff00",
         glowColor: "rgba(0, 255, 0, 0.5)",
         bgImage: "door100real.png",
@@ -299,8 +310,8 @@ const bossFightsData = [
         name: "Bramble",
         enjoyability: "Enjoyability: 8/10",
         enjoyabilityColor: Color.Green,
-        description: "This one is very easy you just need to pay attention.",
-        rank: "#6",
+        description: "You need to pay attention, either sound cue or visual cue, whatever you like, Just focus.",
+        rank: "#7",
         borderColor: "#00ff00",
         glowColor: "rgba(0, 255, 0, 0.5)",
         bgImage: "brambleboss.png",
@@ -310,8 +321,8 @@ const bossFightsData = [
         name: "The Library",
         enjoyability: "Enjoyability: 7.3/10",
         enjoyabilityColor: Color.YellowishGreen,
-        description: "You do need 8 books to fully do it but 7 is enough to guess the last one, also many MANY safe spots",
-        rank: "#7",
+        description: "You do need 8 books to fully do it but 7 is enough to guess the last one, A ton of safe spots but figure can stop being blind sometimes.",
+        rank: "#8",
         borderColor: "#9acd32",
         glowColor: "rgba(154, 205, 50, 0.5)",
         bgImage: "librarytuff.png",
@@ -321,8 +332,8 @@ const bossFightsData = [
         name: "Seek Wall",
         enjoyability: "Enjoyability: 6.8/10",
         enjoyabilityColor: Color.Yellow,
-        description: "Yea.",
-        rank: "#8",
+        description: "Y e a .",
+        rank: "#9",
         borderColor: "#ffff00",
         glowColor: "rgba(255, 255, 0, 0.5)",
         bgImage: "dripdripseek.png",
@@ -358,7 +369,7 @@ function showPage(pageId) {
                 setTimeout(() => {
                     v.style.display = 'none';
                     v.classList.remove('slide-up-out');
-                }, 400);
+                }, 300);
             }
         });
         if (homeView) {
@@ -366,6 +377,9 @@ function showPage(pageId) {
             homeView.classList.remove('fade-out-up');
             homeView.classList.add('fade-in-down');
             void homeView.offsetWidth;
+            setTimeout(() => {
+                homeView.classList.remove('fade-in-down');
+            }, 300);
         }
     } else {
         if (homeView) {
@@ -374,7 +388,7 @@ function showPage(pageId) {
             setTimeout(() => {
                 homeView.style.display = 'none';
                 homeView.classList.remove('fade-out-up');
-            }, 400);
+            }, 300);
         }
 
         views.forEach(v => {
@@ -391,8 +405,12 @@ function showPage(pageId) {
 
         if (targetView) {
             targetView.style.display = 'block';
+            targetView.classList.remove('slide-down-in', 'slide-up-out');
             void targetView.offsetWidth;
             targetView.classList.add('slide-down-in');
+            setTimeout(() => {
+                targetView.classList.remove('slide-down-in');
+            }, 300);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     }
