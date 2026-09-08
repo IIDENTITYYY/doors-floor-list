@@ -90,17 +90,17 @@ body {
     align-items: center;
     min-height: 100vh;
     box-sizing: border-box;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .fade-out-up {
-    transform: translateY(-60px);
+    transform: translateY(-30px);
     opacity: 0;
     pointer-events: none;
 }
 
 .fade-in-down {
-    animation: fadeInDownAnim 0.4s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    animation: fadeInDownAnim 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
 }
 
 h1 {
@@ -194,14 +194,15 @@ h1 {
     width: 100%;
     display: none;
     box-sizing: border-box;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .slide-down-in {
-    animation: slideDownInAnim 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideDownInAnim 0.3s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
 }
 
 .slide-up-out {
-    animation: slideUpOutAnim 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation: slideUpOutAnim 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .page-header {
@@ -497,7 +498,7 @@ body.mobile-device .rank {
 
 @keyframes slideDownInAnim {
     0% {
-        transform: translateY(-40px);
+        transform: translateY(-30px);
         opacity: 0;
     }
     100% {
@@ -512,14 +513,14 @@ body.mobile-device .rank {
         opacity: 1;
     }
     100% {
-        transform: translateY(-40px);
+        transform: translateY(-30px);
         opacity: 0;
     }
 }
 
 @keyframes fadeInDownAnim {
     0% {
-        transform: translateY(-40px);
+        transform: translateY(-30px);
         opacity: 0;
     }
     100% {
