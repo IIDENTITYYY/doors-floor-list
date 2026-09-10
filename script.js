@@ -236,6 +236,28 @@ const chasesData = [
         glowColor: "rgba(255, 255, 0, 0.5)",
         bgImage: "hotelseek1.png",
         ytLink: "https://www.youtube.com/watch?v=MFgJKuRVKRg"
+    },
+    {
+        name: "Hotel- 2nd Seek Chase",
+        enjoyability: "Enjoyability: 7/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "A little buggy sometimes but extremely similar to the current 2nd Seek Chase in the hotel.",
+        rank: "#8",
+        borderColor: "#ffff00",
+        glowColor: "rgba(255, 255, 0, 0.5)",
+        bgImage: "hotelmin2ndseek.png",
+	ytLink: "https://www.youtube.com/watch?v=kJdlkH4U0iQ"
+    },
+    {
+        name: "Hotel- 1st Seek Chase",
+        enjoyability: "Enjoyability: 6.5/10",
+        enjoyabilityColor: Color.YellowishRed,
+        description: "A little buggy sometimes but it's extremely similar to the current 1st Seek Chase.",
+        rank: "#9",
+        borderColor: "#ff6b35",
+        glowColor: "rgba(255, 107, 53, 0.5)",
+        bgImage: "hotelminchase1.png",
+	ytLink: "https://www.youtube.com/watch?v=kJdlkH4U0iQ"
     }
 ];
 
