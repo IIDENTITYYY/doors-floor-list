@@ -256,6 +256,19 @@ const floorsData = [
         bgImage: "DailyRunIMG.png"
     },
     {
+        name: "Overall Battle mode",
+        titleClass: "battlemode-title",
+        enjoyClass: "rainbow-text",
+        descClass: "rainbow-text",
+        enjoyability: "Enjoyability : N/A",
+        enjoyabilityColor: "transparent",
+        description: "Status : Discussing.",
+        rank: "N/A",
+        borderColor: "#8b0000",
+        glowColor: "rgba(139, 0, 0, 0.7)",
+        bgImage: "battlemode.png"
+    },
+    {
         name: "The Candy Vault",
         titleClass: "candyvault-title",
         enjoyClass: "rainbow-text",
