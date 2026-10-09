@@ -6,7 +6,9 @@ const Color = {
     Green: "#00ff66",
     Blue: "#00d2ff",
     YellowishGreen: "#adff2f",
-    Purple: "#b19cd9"
+    Purple: "#b19cd9",
+    Gray: "#888888",
+    Boring: "#7a7a7a"
 };
 
 const xmasString = "Cringle's Workshop".split('').map((char, i) =>
@@ -18,28 +20,80 @@ const chaosString = "Cha0s M0d3".split('').map((char) =>
     char === ' ' ? ' ' : `<span class="chaos-letter" data-original="${char}">${char}</span>`
 ).join('');
 
-function initChaosGlitch() {
-    if (!document.getElementById('chaos-shake-style')) {
-        const style = document.createElement('style');
-        style.id = 'chaos-shake-style';
-        style.innerHTML = `
-            @keyframes insaneShake {
-                0% { transform: translate(0, 0) rotate(0deg); }
-                20% { transform: translate(-4px, 4px) rotate(-4deg); }
-                40% { transform: translate(4px, -3px) rotate(3deg); }
-                60% { transform: translate(-3px, -4px) rotate(4deg); }
-                80% { transform: translate(4px, 3px) rotate(-3deg); }
-                100% { transform: translate(0, 0) rotate(0deg); }
+function injectCustomStyles() {
+    if (document.getElementById('custom-doors-styles')) return;
+    const style = document.createElement('style');
+    style.id = 'custom-doors-styles';
+    style.innerHTML = `
+        @keyframes insaneShake {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            20% { transform: translate(-4px, 4px) rotate(-4deg); }
+            40% { transform: translate(4px, -3px) rotate(3deg); }
+            60% { transform: translate(-3px, -4px) rotate(4deg); }
+            80% { transform: translate(4px, 3px) rotate(-3deg); }
+            100% { transform: translate(0, 0) rotate(0deg); }
+        }
+        @keyframes battleGradient {
+            0% { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
+            50% { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
+            100% { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
+        }
+        .chaos-title {
+            display: inline-block;
+            animation: insaneShake 0.06s infinite;
+        }
+        .mines-title {
+            font-size: clamp(1.8rem, 5vw, 3rem) !important;
+            word-break: break-word;
+        }
+        .stairwell-title {
+            color: ${Color.Gray} !important;
+            font-family: 'Courier New', Courier, monospace !important;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .rooms-title {
+            color: ${Color.Boring} !important;
+            font-family: 'Arial', 'Helvetica', sans-serif !important;
+            font-weight: normal !important;
+            letter-spacing: -0.5px;
+            text-shadow: none !important;
+        }
+        .battlemode-title-custom {
+            animation: battleGradient 3s infinite ease-in-out;
+            font-weight: bold;
+        }
+        .floor-card {
+            box-sizing: border-box;
+            max-width: 100%;
+            touch-action: manipulation;
+        }
+        @media (max-width: 768px) {
+            .floor-card {
+                padding: 12px !important;
+                margin-bottom: 12px !important;
             }
-            .chaos-title {
-                display: inline-block;
-                animation: insaneShake 0.06s infinite;
+            .floor-card h2 {
+                font-size: clamp(1.4rem, 4.5vw, 2.2rem) !important;
             }
-        `;
-        document.head.appendChild(style);
-    }
+            .floor-enjoyability {
+                font-size: 0.95rem !important;
+            }
+            .floor-card p {
+                font-size: 0.85rem !important;
+            }
+        }
+    `;
+    document.head.appendChild(style);
+}
 
-    setInterval(() => {
+let chaosIntervalId = null;
+
+function initChaosGlitch() {
+    injectCustomStyles();
+    if (chaosIntervalId) clearInterval(chaosIntervalId);
+
+    chaosIntervalId = setInterval(() => {
         const letters = document.querySelectorAll('.chaos-letter');
         if (!letters.length) return;
         
@@ -109,24 +163,12 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
     },
     {
-        name: "The Backdoor",
-        titleClass: "backdoor-title",
-        enjoyability: "Enjoyability: 5/10",
-        enjoyabilityColor: Color.Yellow,
-        description: "Heavily depends on RNG, You cannot hear Blitz when Haste is approaching, Vacuum can catch you off guard, Lookman is extremely annoying and it is pretty stressful when you're running out of time.",
-        rank: "#4",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
-        bgImage: "backdoor.png",
-        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
-    },
-    {
         name: "The Outdoors",
         titleClass: "outdoors-title",
         enjoyability: "Enjoyability: 9.45/10",
         enjoyabilityColor: Color.Blue,
         description: "Entities could team up on you resulting in a run ender, Eyestalk chase is a little confusing but overall it is not THAT hard.",
-        rank: "#5",
+        rank: "#4",
         borderColor: "#00d2ff",
         glowColor: "rgba(0, 210, 255, 0.5)",
         bgImage: "outdoors.png",
@@ -134,16 +176,16 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
     },
     {
-        name: "THE STAIRWELL",
-        titleClass: "stairwell-title",
-        enjoyability: "Enjoyability: 4/10",
-        enjoyabilityColor: Color.Red,
-        description: "Very difficult and confusing especially due to the crushers throughout the landings.",
-        rank: "#6",
-        borderColor: "#8b0000",
-        glowColor: "rgba(139, 0, 0, 0.5)",
-        bgImage: "stairwell.png",
-        ytLink: "https://www.youtube.com/watch?v=GuqcKICDjPw"
+        name: "The Backdoor",
+        titleClass: "backdoor-title",
+        enjoyability: "Enjoyability: 5/10",
+        enjoyabilityColor: Color.Yellow,
+        description: "Heavily depends on RNG, You cannot hear Blitz when Haste is approaching, Vacuum can catch you off guard, Lookman is extremely annoying and it is pretty stressful when you're running out of time.",
+        rank: "#5",
+        borderColor: "#ffd700",
+        glowColor: "rgba(255, 215, 0, 0.4)",
+        bgImage: "backdoor.png",
+        ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
     },
     {
         name: "The Hotel",
@@ -151,7 +193,7 @@ const floorsData = [
         enjoyability: "Enjoyability: 8.3/10",
         enjoyabilityColor: Color.Green,
         description: "A Classic, Carried mostly by the Greenhouse, Library and The Electrical Room, Nothing much to say.",
-        rank: "#7",
+        rank: "#6",
         borderColor: "#a87b32",
         glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "hotel.png",
@@ -163,7 +205,7 @@ const floorsData = [
         enjoyability: "Enjoyability: 9.6/10",
         enjoyabilityColor: Color.Blue,
         description: "A very forgiving sub-floor and very easy and fun to learn! Still an amazing Sub-Floor.",
-        rank: "#8",
+        rank: "#7",
         borderColor: "#00d2ff",
         glowColor: "rgba(0, 210, 255, 0.6)",
         bgImage: "archives.png",
@@ -176,11 +218,34 @@ const floorsData = [
         enjoyability: "Enjoyability: 7.8/10",
         enjoyabilityColor: Color.Yellow,
         description: "Straight nostalgia, Only here cuz of old ambush and Jack being pretty common.",
-        rank: "#9",
+        rank: "#8",
         borderColor: "#ffd700",
         glowColor: "rgba(255, 215, 0, 0.4)",
         bgImage: "hotel_minus.png",
         ytLink: "https://www.youtube.com/watch?v=P_W7o4KapZM"
+    },
+    {
+        name: "Overall Battle mode",
+        titleClass: "battlemode-title-custom",
+        enjoyability: "Enjoyability: 8/10",
+        enjoyabilityColor: Color.Green,
+        description: "Could be annoying sometimes and is very very long.",
+        rank: "#9",
+        borderColor: "#ff007f",
+        glowColor: "rgba(255, 0, 127, 0.5)",
+        bgImage: "battlemode.png"
+    },
+    {
+        name: "THE STAIRWELL",
+        titleClass: "stairwell-title",
+        enjoyability: "Enjoyability: 4/10",
+        enjoyabilityColor: Color.Red,
+        description: "Very difficult and confusing especially due to the crushers throughout the landings.",
+        rank: "#10",
+        borderColor: "#8b0000",
+        glowColor: "rgba(139, 0, 0, 0.5)",
+        bgImage: "stairwell.png",
+        ytLink: "https://www.youtube.com/watch?v=GuqcKICDjPw"
     },
     {
         name: "Trick or Treat",
@@ -188,7 +253,7 @@ const floorsData = [
         enjoyability: "Enjoyability: 7.7/10",
         enjoyabilityColor: Color.YellowishGreen,
         description: "Extremely long and a ton of the entities still exist such as rush, Trick or treating IS optional but still, the vision itself is hard to beat.",
-        rank: "#10",
+        rank: "#11",
         borderColor: "#adff2f",
         glowColor: "rgba(173, 255, 47, 0.4)",
         bgImage: "tot.png",
@@ -196,12 +261,13 @@ const floorsData = [
     },
     {
         name: "The Rooms",
+        titleClass: "rooms-title",
         enjoyability: "Enjoyability: 6/10",
-        enjoyabilityColor: Color.YellowishGreen,
-        description: "A-1000.",
-        rank: "#11",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
+        enjoyabilityColor: Color.Boring,
+        description: "A-1OOO",
+        rank: "#12",
+        borderColor: "#555555",
+        glowColor: "rgba(122, 122, 122, 0.2)",
         bgImage: "roomsbanner.png",
         ytLink: "https://www.youtube.com/watch?v=DKfk50gHceY"
     },
@@ -211,7 +277,7 @@ const floorsData = [
         enjoyability: "Enjoyability: 7/10",
         enjoyabilityColor: Color.Yellow,
         description: "Breeze may come in the worst minute, Krampus is pretty fast and has a very big hitbox.",
-        rank: "#12",
+        rank: "#13",
         borderColor: "#ffd700",
         glowColor: "rgba(255, 215, 0, 0.4)",
         bgImage: "workshop.png",
@@ -223,7 +289,7 @@ const floorsData = [
         enjoyability: "Enjoyability: 8.5/10",
         enjoyabilityColor: Color.Green,
         description: "You have 600 seconds to finish it and the drakobloxxers are nearly impossible to dodge, Also the Library can be quite time consuming.",
-        rank: "#13",
+        rank: "#14",
         borderColor: "#00ff66",
         glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "retro.png",
@@ -234,11 +300,11 @@ const floorsData = [
         name: "Rush Mode",
         titleClass: "rush-title",
         titleColor: "#33ffaa",
-        titleExtra: "font-size: 4.1rem; -webkit-text-stroke: 1px rgba(0,0,0,0.5); text-shadow: 0 0 15px #33ffaa, 0 0 30px #33ffaa, 0 0 45px #33ffaa;",
+        titleExtra: "font-size: clamp(2rem, 5vw, 4.1rem); -webkit-text-stroke: 1px rgba(0,0,0,0.5); text-shadow: 0 0 15px #33ffaa, 0 0 30px #33ffaa, 0 0 45px #33ffaa;",
         enjoyability: "Enjoyability: 8.8/10",
         enjoyabilityColor: Color.Green,
         description: "Common items, No Greenhouse, you can kill some entities, Just an easier version of The Hotel honestly.",
-        rank: "#14",
+        rank: "#15",
         borderColor: "#00ff66",
         glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "rush_mode.png",
@@ -250,23 +316,10 @@ const floorsData = [
         enjoyability: "Enjoyability: 8/10",
         enjoyabilityColor: Color.Green,
         description: "It has no bossfights but you can get awful combos and you can also get figure, Still very easy.",
-        rank: "#15",
+        rank: "#16",
         borderColor: "#00ff66",
         glowColor: "rgba(0, 255, 102, 0.4)",
         bgImage: "DailyRunIMG.png"
-    },
-    {
-        name: "Overall Battle mode",
-        titleClass: "battlemode-title",
-        enjoyClass: "rainbow-text",
-        descClass: "rainbow-text",
-        enjoyability: "Enjoyability : N/A",
-        enjoyabilityColor: "transparent",
-        description: "Status : Discussing.",
-        rank: "N/A",
-        borderColor: "#8b0000",
-        glowColor: "rgba(139, 0, 0, 0.7)",
-        bgImage: "battlemode.png"
     },
     {
         name: "The Candy Vault",
@@ -509,12 +562,6 @@ function checkMobile() {
     }
 }
 
-window.addEventListener('resize', checkMobile);
-document.addEventListener('DOMContentLoaded', () => {
-    checkMobile();
-    initChaosGlitch();
-});
-
 function showPage(pageId) {
     const homeView = document.getElementById('home-view');
     const floorsView = document.getElementById('floors-view');
@@ -538,7 +585,6 @@ function showPage(pageId) {
             homeView.style.display = 'flex';
             homeView.classList.remove('fade-out-up');
             homeView.classList.add('fade-in-down');
-            void homeView.offsetWidth;
             setTimeout(() => {
                 homeView.classList.remove('fade-in-down');
             }, 300);
@@ -582,55 +628,67 @@ function renderList(data, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
     
-    container.innerHTML = data.map(item => {
+    const fragment = document.createDocumentFragment();
+    
+    data.forEach(item => {
         const tag = item.ytLink ? 'a' : 'div';
-        const linkAttrs = item.ytLink ? 'href="' + item.ytLink + '" target="_blank" rel="noopener noreferrer"' : '';
+        const card = document.createElement(tag);
         
-        const titleColorStyle = item.titleColor ? 'color: ' + item.titleColor + ';' : '';
-        const titleExtraStyle = item.titleExtra || '';
-        const titleStyle = 'style="text-decoration: none; margin-bottom: 4px;' + titleColorStyle + titleExtraStyle + '"';
+        if (item.ytLink) {
+            card.href = item.ytLink;
+            card.target = '_blank';
+            card.rel = 'noopener noreferrer';
+        }
         
+        card.className = `floor-card ${item.isOutdoors ? 'outdoors-card' : ''} ${item.isArchives ? 'archives-card' : ''} ${item.isRetro ? 'retro-card' : ''} ${item.isStairwell ? 'stairwell-card' : ''}`;
+        card.style.cssText = `border-color: ${item.borderColor}; box-shadow: 0 0 30px ${item.glowColor}; background-image: url('${item.bgImage}'); text-decoration: none; position: relative; overflow: hidden;`;
+
         let extraImages = '';
         if (item.isOutdoors) {
             extraImages += '<img src="outdoors_frame.png" class="outdoors-vines-frame" alt="Vines Frame">';
         }
         if (item.isRetro) {
-            extraImages += '<img src="drakoblox.png" class="awkward-drakoblox" alt="Drakoblox">';
+            extraImages += '<img src="drakoblox.png" class="awkward-drakoblox" alt="Drakoblox" style="display: block;">';
         }
+
+        const titleColorStyle = item.titleColor ? `color: ${item.titleColor};` : '';
+        const titleExtraStyle = item.titleExtra || '';
+        const titleStyle = `style="text-decoration: none; margin-bottom: 4px; ${titleColorStyle} ${titleExtraStyle}"`;
 
         let descHtml = '';
         if (item.description) {
-            descHtml = '<p class="' + (item.descClass || '') + '" style="text-decoration: none;">' + item.description + '</p>';
+            descHtml = `<p class="${item.descClass || ''}" style="text-decoration: none;">${item.description}</p>`;
         }
 
-        return '<' + tag + ' ' + linkAttrs + ' class="floor-card ' + (item.isOutdoors ? 'outdoors-card' : '') + ' ' + (item.isArchives ? 'archives-card' : '') + ' ' + (item.isRetro ? 'retro-card' : '') + ' ' + (item.isStairwell ? 'stairwell-card' : '') + '" style="border-color: ' + item.borderColor + '; box-shadow: 0 0 30px ' + item.glowColor + '; background-image: url(\'' + item.bgImage + '\'); text-decoration: none; position: relative; overflow: hidden;">' +
-            extraImages +
-            '<div class="floor-meta">' +
-                '<span class="rank" style="color: ' + item.borderColor + '; text-shadow: 0 0 15px ' + item.glowColor + ';">' + item.rank + '</span>' +
-            '</div>' +
-            '<div class="floor-info">' +
-                '<h2 class="' + (item.titleClass || '') + '" ' + titleStyle + '>' + item.name + '</h2>' +
-                '<p class="floor-enjoyability ' + (item.enjoyClass || '') + '" style="color: ' + item.enjoyabilityColor + '; font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; text-shadow: 0 0 10px rgba(0, 0, 0, 0.95);">' + item.enjoyability + '</p>' +
-                descHtml +
-            '</div>' +
-        '</' + tag + '>';
-    }).join('');
+        card.innerHTML = `
+            ${extraImages}
+            <div class="floor-meta">
+                <span class="rank" style="color: ${item.borderColor}; text-shadow: 0 0 15px ${item.glowColor};">${item.rank}</span>
+            </div>
+            <div class="floor-info">
+                <h2 class="${item.titleClass || ''}" ${titleStyle}>${item.name}</h2>
+                <p class="floor-enjoyability ${item.enjoyClass || ''}" style="color: ${item.enjoyabilityColor}; font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; text-shadow: 0 0 10px rgba(0, 0, 0, 0.95);">${item.enjoyability}</p>
+                ${descHtml}
+            </div>
+        `;
+        
+        fragment.appendChild(card);
+    });
+
+    container.innerHTML = '';
+    container.appendChild(fragment);
 }
 
 function renderAll() {
     renderList(floorsData, 'floors-container');
     renderList(chasesData, 'chases-container');
     renderList(bossFightsData, 'bossfights-container');
-
-    const container = document.getElementById('floors-container');
-    if (!container) return;
-    const retroCard = container.querySelector('.retro-card');
-    if (retroCard) {
-        const drakobloxImg = retroCard.querySelector('.awkward-drakoblox');
-        if (drakobloxImg) {
-            drakobloxImg.style.display = 'block';
-        }
-    }
 }
 
-renderAll();
+window.addEventListener('resize', checkMobile);
+
+document.addEventListener('DOMContentLoaded', () => {
+    checkMobile();
+    renderAll();
+    initChaosGlitch();
+});
