@@ -7,8 +7,17 @@ const Color = {
     Blue: "#00d2ff",
     YellowishGreen: "#adff2f",
     Purple: "#b19cd9",
+    DarkPurple: "#4a0e4e",
     Gray: "#888888",
-    Boring: "#7a7a7a"
+    DarkGray: "#333333",
+    BrightGray: "#e0e0e0",
+    BrightGlowPink: "#ff007f",
+    OldYellow: "#cc9900",
+    Brown: "#8b5a2b",
+    BrightBrown: "#d2b48c",
+    Black: "#111111",
+    Gween: "#32cd32",
+    GreenAndPink: "#00ff66"
 };
 
 const xmasString = "Cringle's Workshop".split('').map((char, i) =>
@@ -38,6 +47,16 @@ function injectCustomStyles() {
             50% { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
             100% { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
         }
+        @keyframes xmasGlow {
+            0% { color: #ff3333; text-shadow: 0 0 10px #ff3333; }
+            50% { color: #00ff66; text-shadow: 0 0 10px #00ff66; }
+            100% { color: #ffd700; text-shadow: 0 0 10px #ffd700; }
+        }
+        @keyframes greenPinkGlow {
+            0% { color: #00ff66; text-shadow: 0 0 10px #00ff66; }
+            50% { color: #ff007f; text-shadow: 0 0 10px #ff007f; }
+            100% { color: #00ff66; text-shadow: 0 0 10px #00ff66; }
+        }
         .chaos-title {
             display: inline-block;
             animation: insaneShake 0.06s infinite;
@@ -47,13 +66,13 @@ function injectCustomStyles() {
             word-break: break-word;
         }
         .stairwell-title {
-            color: ${Color.Gray} !important;
+            color: ${Color.DarkGray} !important;
             font-family: 'Courier New', Courier, monospace !important;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
         .rooms-title {
-            color: ${Color.Boring} !important;
+            color: #7a7a7a !important;
             font-family: 'Arial', 'Helvetica', sans-serif !important;
             font-weight: normal !important;
             letter-spacing: -0.5px;
@@ -62,6 +81,12 @@ function injectCustomStyles() {
         .battlemode-title-custom {
             animation: battleGradient 3s infinite ease-in-out;
             font-weight: bold;
+        }
+        .xmas-animated-text {
+            animation: xmasGlow 2s infinite ease-in-out;
+        }
+        .tot-animated-text {
+            animation: greenPinkGlow 2s infinite ease-in-out;
         }
         .floor-card {
             box-sizing: border-box;
@@ -126,51 +151,52 @@ const floorsData = [
     {
         name: `Super Hard mode <span class="spin-pentagram">⛧</span>`,
         titleClass: "super-hard-title",
-        titleColor: Color.Red,
+        titleColor: Color.DarkRed,
         enjoyability: "Enjoyability: 2.25/10",
         enjoyabilityColor: Color.DarkRed,
         description: "Truly Hell, Subspace Tripmines (Dupe) one shot you, there are multiple rush variants, Jeff the killer exists, Greed can also get you from Auto-Collecting coins which wouldn't even be your fault and so much more, This Is truly something else.",
         rank: "#1",
-        borderColor: "#8b0000",
-        glowColor: "rgba(139, 0, 0, 0.5)",
+        borderColor: Color.DarkRed,
+        glowColor: "rgba(139, 0, 0, 0.6)",
         bgImage: "superhard.png",
         ytLink: "https://www.youtube.com/watch?v=dNEUphwNRbo"
     },
     {
         name: chaosString,
         titleClass: "chaos-title",
-        titleColor: Color.Purple,
+        titleColor: Color.DarkPurple,
         enjoyability: "Enjoyability: 2.8/10",
-        enjoyabilityColor: Color.Red,
+        enjoyabilityColor: Color.DarkPurple,
         description: "Fully depends on RNG and your luck, In some scenarios you're just.. dead, Nothing you could've done, This Vision is actually horrible to play and fully deserves this spot.",
         rank: "#2",
-        borderColor: "#ff3333",
-        glowColor: "rgba(255, 51, 51, 0.5)",
+        borderColor: Color.DarkPurple,
+        glowColor: "rgba(74, 14, 78, 0.6)",
         bgImage: "chaos.png",
         ytLink: "https://www.youtube.com/watch?v=pIS9_ctaNvQ"
     },
     {
         name: "The Mines",
         titleClass: "mines-title",
-        titleColor: "#33ffaa",
+        titleColor: Color.BrightGray,
         enjoyability: "Enjoyability: 9.2/10",
-        enjoyabilityColor: Color.Green,
+        enjoyabilityColor: Color.BrightGray,
         description: "The Doors 190-199 are very very difficult, Some Rooms could have a generator where you just can't find the fuses and it'll lead to dread catching you, The figure encounters are pretty difficult, The Nest, 1st Seek chase, and more! This is the hardest Floor..",
         rank: "#3",
-        borderColor: "#00ff66",
-        glowColor: "rgba(0, 255, 102, 0.4)",
+        borderColor: Color.BrightGray,
+        glowColor: "rgba(224, 224, 224, 0.6)",
         bgImage: "mines.png",
         ytLink: "https://www.youtube.com/watch?v=oCcZH7Vy2I0"
     },
     {
         name: "The Outdoors",
         titleClass: "outdoors-title",
+        titleColor: Color.BrightGlowPink,
         enjoyability: "Enjoyability: 9.45/10",
-        enjoyabilityColor: Color.Blue,
+        enjoyabilityColor: Color.BrightGlowPink,
         description: "Entities could team up on you resulting in a run ender, Eyestalk chase is a little confusing but overall it is not THAT hard.",
         rank: "#4",
-        borderColor: "#00d2ff",
-        glowColor: "rgba(0, 210, 255, 0.5)",
+        borderColor: Color.BrightGlowPink,
+        glowColor: "rgba(255, 0, 127, 0.6)",
         bgImage: "outdoors.png",
         isOutdoors: true,
         ytLink: "https://www.youtube.com/watch?v=cNzl773JeKo"
@@ -178,36 +204,39 @@ const floorsData = [
     {
         name: "The Backdoor",
         titleClass: "backdoor-title",
+        titleColor: Color.OldYellow,
         enjoyability: "Enjoyability: 5/10",
-        enjoyabilityColor: Color.Yellow,
+        enjoyabilityColor: Color.OldYellow,
         description: "Heavily depends on RNG, You cannot hear Blitz when Haste is approaching, Vacuum can catch you off guard, Lookman is extremely annoying and it is pretty stressful when you're running out of time.",
         rank: "#5",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
+        borderColor: Color.OldYellow,
+        glowColor: "rgba(204, 153, 0, 0.6)",
         bgImage: "backdoor.png",
         ytLink: "https://www.youtube.com/watch?v=MwGZl481__4"
     },
     {
         name: "The Hotel",
         titleClass: "hotel-title",
+        titleColor: Color.Brown,
         enjoyability: "Enjoyability: 8.3/10",
-        enjoyabilityColor: Color.Green,
+        enjoyabilityColor: Color.Brown,
         description: "A Classic, Carried mostly by the Greenhouse, Library and The Electrical Room, Nothing much to say.",
         rank: "#6",
-        borderColor: "#a87b32",
-        glowColor: "rgba(0, 255, 102, 0.4)",
+        borderColor: Color.Brown,
+        glowColor: "rgba(139, 90, 43, 0.6)",
         bgImage: "hotel.png",
         ytLink: "https://www.youtube.com/watch?v=k-o9vcNUXbo"
     },
     {
         name: "The Archives",
         titleClass: "archives-title",
+        titleColor: Color.Yellow,
         enjoyability: "Enjoyability: 9.6/10",
-        enjoyabilityColor: Color.Blue,
+        enjoyabilityColor: Color.Yellow,
         description: "A very forgiving sub-floor and very easy and fun to learn! Still an amazing Sub-Floor.",
         rank: "#7",
-        borderColor: "#00d2ff",
-        glowColor: "rgba(0, 210, 255, 0.6)",
+        borderColor: Color.Yellow,
+        glowColor: "rgba(255, 215, 0, 0.6)",
         bgImage: "archives.png",
         isArchives: true,
         ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
@@ -215,47 +244,49 @@ const floorsData = [
     {
         name: "Hotel -",
         titleClass: "hotel-minus-title",
+        titleColor: Color.BrightBrown,
         enjoyability: "Enjoyability: 7.8/10",
-        enjoyabilityColor: Color.Yellow,
+        enjoyabilityColor: Color.BrightBrown,
         description: "Straight nostalgia, Only here cuz of old ambush and Jack being pretty common.",
         rank: "#8",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
+        borderColor: Color.BrightBrown,
+        glowColor: "rgba(210, 180, 140, 0.6)",
         bgImage: "hotel_minus.png",
         ytLink: "https://www.youtube.com/watch?v=P_W7o4KapZM"
     },
     {
         name: "Overall Battle mode",
         titleClass: "battlemode-title-custom",
+        enjoyClass: "battlemode-title-custom",
         enjoyability: "Enjoyability: 8/10",
-        enjoyabilityColor: Color.Green,
         description: "Could be annoying sometimes and is very very long.",
         rank: "#9",
-        borderColor: "#ff007f",
-        glowColor: "rgba(255, 0, 127, 0.5)",
+        borderColor: Color.BrightGlowPink,
+        glowColor: "rgba(255, 0, 127, 0.6)",
         bgImage: "battlemode.png"
     },
     {
         name: "THE STAIRWELL",
         titleClass: "stairwell-title",
+        titleColor: Color.DarkGray,
         enjoyability: "Enjoyability: 4/10",
-        enjoyabilityColor: Color.Red,
+        enjoyabilityColor: Color.DarkGray,
         description: "Very difficult and confusing especially due to the crushers throughout the landings.",
         rank: "#10",
-        borderColor: "#8b0000",
-        glowColor: "rgba(139, 0, 0, 0.5)",
+        borderColor: Color.DarkGray,
+        glowColor: "rgba(51, 51, 51, 0.6)",
         bgImage: "stairwell.png",
         ytLink: "https://www.youtube.com/watch?v=GuqcKICDjPw"
     },
     {
         name: "Trick or Treat",
-        titleClass: "tot-title",
+        titleClass: "tot-title tot-animated-text",
+        enjoyClass: "tot-animated-text",
         enjoyability: "Enjoyability: 7.7/10",
-        enjoyabilityColor: Color.YellowishGreen,
         description: "Extremely long and a ton of the entities still exist such as rush, Trick or treating IS optional but still, the vision itself is hard to beat.",
         rank: "#11",
-        borderColor: "#adff2f",
-        glowColor: "rgba(173, 255, 47, 0.4)",
+        borderColor: Color.Green,
+        glowColor: "rgba(0, 255, 102, 0.6)",
         bgImage: "tot.png",
         ytLink: "https://www.youtube.com/watch?v=gk4loophOGM"
     },
@@ -263,7 +294,7 @@ const floorsData = [
         name: "The Rooms",
         titleClass: "rooms-title",
         enjoyability: "Enjoyability: 6/10",
-        enjoyabilityColor: Color.Boring,
+        enjoyabilityColor: "#7a7a7a",
         description: "A-1OOO",
         rank: "#12",
         borderColor: "#555555",
@@ -274,24 +305,25 @@ const floorsData = [
     {
         name: xmasString,
         titleClass: "xmas-title",
+        enjoyClass: "xmas-animated-text",
         enjoyability: "Enjoyability: 7/10",
-        enjoyabilityColor: Color.Yellow,
         description: "Breeze may come in the worst minute, Krampus is pretty fast and has a very big hitbox.",
         rank: "#13",
-        borderColor: "#ffd700",
-        glowColor: "rgba(255, 215, 0, 0.4)",
+        borderColor: Color.Yellow,
+        glowColor: "rgba(255, 215, 0, 0.6)",
         bgImage: "workshop.png",
         ytLink: "https://www.youtube.com/watch?v=sG6jMMObi-U"
     },
     {
         name: "RETRO MODE",
         titleClass: "retro-title",
+        titleColor: Color.Green,
         enjoyability: "Enjoyability: 8.5/10",
         enjoyabilityColor: Color.Green,
         description: "You have 600 seconds to finish it and the drakobloxxers are nearly impossible to dodge, Also the Library can be quite time consuming.",
         rank: "#14",
-        borderColor: "#00ff66",
-        glowColor: "rgba(0, 255, 102, 0.4)",
+        borderColor: Color.Green,
+        glowColor: "rgba(0, 255, 102, 0.6)",
         bgImage: "retro.png",
         isRetro: true,
         ytLink: "https://www.youtube.com/watch?v=3ogXXQttvRc"
@@ -299,26 +331,27 @@ const floorsData = [
     {
         name: "Rush Mode",
         titleClass: "rush-title",
-        titleColor: "#33ffaa",
-        titleExtra: "font-size: clamp(2rem, 5vw, 4.1rem); -webkit-text-stroke: 1px rgba(0,0,0,0.5); text-shadow: 0 0 15px #33ffaa, 0 0 30px #33ffaa, 0 0 45px #33ffaa;",
+        titleColor: Color.Black,
+        titleExtra: "-webkit-text-stroke: 1px #33ffaa; text-shadow: 0 0 10px rgba(0,0,0,0.8);",
         enjoyability: "Enjoyability: 8.8/10",
-        enjoyabilityColor: Color.Green,
+        enjoyabilityColor: Color.Black,
         description: "Common items, No Greenhouse, you can kill some entities, Just an easier version of The Hotel honestly.",
         rank: "#15",
-        borderColor: "#00ff66",
-        glowColor: "rgba(0, 255, 102, 0.4)",
+        borderColor: Color.Black,
+        glowColor: "rgba(17, 17, 17, 0.8)",
         bgImage: "rush_mode.png",
         ytLink: "https://www.youtube.com/watch?v=H1ifZ3Arhf0"
     },
     {
         name: "Overall Daily Runs",
         titleClass: "daily-runs-title",
+        titleColor: Color.Gween,
         enjoyability: "Enjoyability: 8/10",
-        enjoyabilityColor: Color.Green,
+        enjoyabilityColor: Color.Gween,
         description: "It has no bossfights but you can get awful combos and you can also get figure, Still very easy.",
         rank: "#16",
-        borderColor: "#00ff66",
-        glowColor: "rgba(0, 255, 102, 0.4)",
+        borderColor: Color.Gween,
+        glowColor: "rgba(50, 205, 50, 0.6)",
         bgImage: "DailyRunIMG.png"
     },
     {
@@ -330,7 +363,7 @@ const floorsData = [
         enjoyabilityColor: "transparent",
         description: "Status : Coming Soon.",
         rank: "N/A",
-        borderColor: "#8b0000",
+        borderColor: Color.DarkRed,
         glowColor: "rgba(139, 0, 0, 0.7)",
         bgImage: "candyvaultbanner.png"
     },
@@ -343,7 +376,7 @@ const floorsData = [
         enjoyabilityColor: "transparent",
         description: "Status : Coming Soon.",
         rank: "N/A",
-        borderColor: "#8b0000",
+        borderColor: Color.DarkRed,
         glowColor: "rgba(139, 0, 0, 0.7)",
         bgImage: "floor3banner.png"
     }
@@ -655,6 +688,8 @@ function renderList(data, containerId) {
         const titleExtraStyle = item.titleExtra || '';
         const titleStyle = `style="text-decoration: none; margin-bottom: 4px; ${titleColorStyle} ${titleExtraStyle}"`;
 
+        const enjoyabilityColorStyle = item.enjoyabilityColor ? `color: ${item.enjoyabilityColor};` : '';
+
         let descHtml = '';
         if (item.description) {
             descHtml = `<p class="${item.descClass || ''}" style="text-decoration: none;">${item.description}</p>`;
@@ -667,7 +702,7 @@ function renderList(data, containerId) {
             </div>
             <div class="floor-info">
                 <h2 class="${item.titleClass || ''}" ${titleStyle}>${item.name}</h2>
-                <p class="floor-enjoyability ${item.enjoyClass || ''}" style="color: ${item.enjoyabilityColor}; font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; text-shadow: 0 0 10px rgba(0, 0, 0, 0.95);">${item.enjoyability}</p>
+                <p class="floor-enjoyability ${item.enjoyClass || ''}" style="${enjoyabilityColorStyle} font-size: 1.1rem; font-weight: bold; margin-bottom: 12px; text-shadow: 0 0 10px rgba(0, 0, 0, 0.95);">${item.enjoyability}</p>
                 ${descHtml}
             </div>
         `;
