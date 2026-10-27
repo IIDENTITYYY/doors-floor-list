@@ -343,29 +343,29 @@ const floorsData = [
         ytLink: "https://www.youtube.com/watch?v=H1ifZ3Arhf0"
     },
     {
+        name: "The Candy Vault",
+        titleClass: "tot-title tot-animated-text",
+        enjoyClass: "tot-animated-text",
+        enjoyability: "Enjoyability : 9/10",
+        enjoyabilityColor: Color.Green,
+        description: "Very beginner friendly and fun! Also infinite revives",
+        rank: "16",
+        borderColor: Color.DarkRed,
+        glowColor: "rgba(139, 0, 0, 0.7)",
+        bgImage: "candyvaultbanner.png",
+        ytLink: "https://youtu.be/atvur4ncfFU?si=kZgsdqz4c_U_VxXD"
+    },
+    {
         name: "Overall Daily Runs",
         titleClass: "daily-runs-title",
         titleColor: Color.Gween,
         enjoyability: "Enjoyability: 8/10",
         enjoyabilityColor: Color.Gween,
         description: "It has no bossfights but you can get awful combos and you can also get figure, Still very easy.",
-        rank: "#16",
+        rank: "#17",
         borderColor: Color.Gween,
         glowColor: "rgba(50, 205, 50, 0.6)",
         bgImage: "DailyRunIMG.png"
-    },
-    {
-        name: "The Candy Vault",
-        titleClass: "candyvault-title",
-        enjoyClass: "rainbow-text",
-        descClass: "rainbow-text",
-        enjoyability: "Enjoyability : TBD",
-        enjoyabilityColor: "transparent",
-        description: "Status : TBD",
-        rank: "N/A",
-        borderColor: Color.DarkRed,
-        glowColor: "rgba(139, 0, 0, 0.7)",
-        bgImage: "candyvaultbanner.png"
     },
     {
         name: "Floor 3",
